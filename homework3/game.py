@@ -120,7 +120,7 @@ def main():
             field = perform_move(field, key)
             amount_moves += 1
             if is_game_finished(field):
-                print('You`re win! You have made {}steps').format(amount_moves)
+                print('You`re win! You have made {} steps').format(amount_moves)
                 break
 
         except IndexError:
