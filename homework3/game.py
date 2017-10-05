@@ -41,7 +41,8 @@ def print_field(field):
     print('-' * 12)
     i = 0
     while i < 4:
-        print('|'.join([str(title).ljust(2) for title in field[i * 4:i * 4 + 4]]))
+        print('|'.join([str(title).ljust(2) for
+                        title in field[i * 4:i * 4 + 4]]))
         i += 1
         print('-' * 12)
 
@@ -80,7 +81,8 @@ def perform_move(field, key):
         raise IndexError()
 
     new_field = list(field)
-    new_field[index_x], new_field[index_x + MOVES[key]] = new_field[index_x + MOVES[key]], new_field[index_x]
+    new_field[index_x], new_field[index_x + MOVES[key]] =\
+        new_field[index_x + MOVES[key]], new_field[index_x]
 
     return new_field
 
