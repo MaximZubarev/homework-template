@@ -26,7 +26,15 @@ def shuffle_field():
 
     field = [i for i in range(1, 16)]
     field.append(EMPTY_MARK)
-    random.shuffle(field)
+
+    for _ in range(100):
+        move = random.choice(list(MOVES.keys()))
+        try:
+            field = perform_move(field, move)
+        except IndexError:
+            pass
+
+    # random.shuffle(field)
 
     return field
 
@@ -96,11 +104,12 @@ def handle_user_input():
         'd' - right
     :return: <str> current move.
     """
-    key = str(input('Use "wasd" for a move:\n')).lower()
-    if key not in MOVES:
-        handle_user_input()
-    else:
-        return key
+    move = None
+    while move not in MOVES.keys():
+        move = input('Use "wasd" for step:\n')
+
+    return move
+
 
 
 def main():
