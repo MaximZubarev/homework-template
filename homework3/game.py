@@ -111,7 +111,6 @@ def handle_user_input():
     return move
 
 
-
 def main():
     """
     The main method. It stars when the program is called.
