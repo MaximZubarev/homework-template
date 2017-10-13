@@ -23,7 +23,6 @@ def shuffle_field():
     :return: list with 16 randomly shuffled tiles,
     one of which is a empty space.
     """
-<<<<<<< HEAD
 
     field = [i for i in range(1, 16)]
     field.append(EMPTY_MARK)
@@ -38,9 +37,6 @@ def shuffle_field():
     # random.shuffle(field)
 
     return field
-=======
-    pass
->>>>>>> upstream/master
 
 
 def print_field(field):
@@ -49,7 +45,6 @@ def print_field(field):
     :param field: current field state to be printed.
     :return: None
     """
-<<<<<<< HEAD
 
     print('-' * 12)
     i = 0
@@ -58,9 +53,6 @@ def print_field(field):
                         title in field[i * 4:i * 4 + 4]]))
         i += 1
         print('-' * 12)
-=======
-    pass
->>>>>>> upstream/master
 
 
 def is_game_finished(field):
@@ -69,15 +61,11 @@ def is_game_finished(field):
     :param field: current field state.
     :return: True if the game is finished, False otherwise.
     """
-<<<<<<< HEAD
     for i in range(1, len(field)):
         if field[i - 1] != i or field[i - 1] == EMPTY_MARK:
             return False
 
     return True
-=======
-    pass
->>>>>>> upstream/master
 
 
 def perform_move(field, key):
@@ -88,7 +76,6 @@ def perform_move(field, key):
     :return: new field state (after the move).
     :raises: IndexError if the move can't me done.
     """
-<<<<<<< HEAD
 
     index_x = field.index(EMPTY_MARK)
 
@@ -106,9 +93,6 @@ def perform_move(field, key):
         new_field[index_x + MOVES[key]], new_field[index_x]
 
     return new_field
-=======
-    pass
->>>>>>> upstream/master
 
 
 def handle_user_input():
@@ -120,15 +104,11 @@ def handle_user_input():
         'd' - right
     :return: <str> current move.
     """
-<<<<<<< HEAD
     move = None
     while move not in MOVES.keys():
         move = input('Use "wasd" for step:\n')
 
     return move
-=======
-    pass
->>>>>>> upstream/master
 
 
 def main():
@@ -137,7 +117,6 @@ def main():
     It also calls other methods.
     :return: None
     """
-<<<<<<< HEAD
 
     field = shuffle_field()
     amount_moves = 0
@@ -154,20 +133,13 @@ def main():
 
         except IndexError:
             print('It`s not possible. Try again')
-=======
-    pass
->>>>>>> upstream/master
 
 
 if __name__ == '__main__':
     # See what this means:
     # http://stackoverflow.com/questions/419163/what-does-if-name-main-do
 
-<<<<<<< HEAD
     try:
         main()
     except KeyboardInterrupt:
         print('shutting down')
-=======
-    main()
->>>>>>> upstream/master
