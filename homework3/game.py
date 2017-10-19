@@ -79,13 +79,14 @@ def perform_move(field, key):
 
     index_x = field.index(EMPTY_MARK)
 
-    if index_x % 4 == 0 and key == 'a':
+    next_index_position = index_x + MOVES[key]
+    if not (0 < next_index_position < len(field)):
         raise IndexError()
-    elif index_x % 4 == 3 and key == 'd':
+    # left move restrictions
+    if index_x in [0, 4, 8, 12] and key == 'a':
         raise IndexError()
-    elif index_x < 4 and key == 'w':
-        raise IndexError()
-    elif index_x > 11 and key == 's':
+    # right move restrictions
+    if index_x in [3, 7, 11, 15] and key == 'd':
         raise IndexError()
 
     new_field = list(field)
