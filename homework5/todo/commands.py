@@ -79,3 +79,65 @@ class ExitCommand(BaseCommand):
 
     def perform(self, _store):
         raise UserExitException('See you next time!')
+
+
+class DoneCommand(BaseCommand):
+    @property
+    def label(self) -> str:
+        return 'done'
+
+    def perform(self, store):
+
+        if len(store.items) == 0:
+            print('There are no items in storage.')
+            return
+
+        for index, obj in enumerate(store.items):
+            print('{}: {}'.format(index, str(obj)))
+
+        while True:
+            try:
+                selection = int(input('Input number: '))
+
+                break
+            except ValueError:
+                print('Bad input, try again.')
+            except IndexError:
+                print('Wrong index, try again.')
+
+        store.items[selection].done = True
+
+        selected_class = store.items[selection]
+        print('{}: {} - is done!'.format(index, selected_class))
+        print()
+
+
+class UndoneCommand(BaseCommand):
+    @property
+    def label(self) -> str:
+        return 'undone'
+
+    def perform(self, store):
+
+        if len(store.items) == 0:
+            print('There are no items in storage.')
+            return
+
+        for index, obj in enumerate(store.items):
+            print('{}: {}'.format(index, str(obj)))
+
+        while True:
+            try:
+                selection = int(input('Input number: '))
+
+                break
+            except ValueError:
+                print('Bad input, try again.')
+            except IndexError:
+                print('Wrong index, try again.')
+
+        store.items[selection].done = False
+
+        selected_class = store.items[selection]
+        print('{}: {} - is undone!'.format(index, selected_class))
+        print()
