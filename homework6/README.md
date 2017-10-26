@@ -8,5 +8,5 @@ Two modes of the game:
 
 ## To run
 1. cd homework6
-2. python3 -m Hangman
+2. python3 -m hangman
 3. Enjoy!
