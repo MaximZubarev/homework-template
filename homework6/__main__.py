@@ -36,7 +36,8 @@ class Game(object):
         if letter in random_word:
             for k in range(0, len(random_word)):
                 if self.unsolved_word[k] == '_':
-                    self.unsolved_word[k] = letter if random_word[k] == letter else '_'
+                    self.unsolved_word[k] = letter if\
+                        random_word[k] == letter else '_'
             return ''.join(self.unsolved_word)
 
     def is_game_finished(self, word):
@@ -67,7 +68,8 @@ class Game(object):
         :param winner:
         :return: list with attempts, winner, amount of right letters
         """
-        result = [attempts, len([i for i in self.unsolved_word if i != '_']), winner]
+        result = [attempts, len([i for i in self.unsolved_word if
+                                 i != '_']), winner]
         return result
 
     def perform(self):
@@ -195,7 +197,8 @@ def main():
     choice = None
     while choice not in [1, 2]:
         try:
-            choice = int(input('Play with?\n1. Player\n2. Computer\nWrite a number:\n'))
+            choice = int(input('Play with?\n1. '
+                               'Player\n2. Computer\nWrite a number:\n'))
             player_game() if choice == 1 else pc_game()
         except ValueError:
             print('Write a number!\n')
