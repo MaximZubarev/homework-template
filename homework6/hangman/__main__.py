@@ -13,7 +13,7 @@ class Game(object):
         """
         Draw the hangman
         :param n: amount of mistakes
-        :return: a picture of hangman
+        :return: none
         """
         if n <= 3:
             print('_' * 3)
